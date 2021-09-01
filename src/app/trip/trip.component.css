@@ -1,0 +1,14 @@
+.wrapper{
+
+}
+.tripForm{
+    display: flex;
+    width:300px;
+    flex-direction: column;
+    margin: 20px auto;
+    padding: 2px;
+}
+input{
+    padding: 2px;
+    margin-bottom:1.5rem;
+}

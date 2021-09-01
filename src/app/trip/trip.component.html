@@ -1,0 +1,31 @@
+<div class="wrapper">
+    <form [formGroup]="tripForm" action="" class="tripForm" (ngSubmit)="onSubmit()">
+        <label for="distance"> Расстояние</label>
+        <input type="text" formControlName="distance" name="distance">
+        <label for="luggageWeight"> Вес багажа</label>
+        <input type="text" formControlName="luggageWeight" name="luggageWeight">
+        <label for="age"> Возраст пассажира</label>
+        <input type="text" formControlName="age" name="age">
+        <button type="submit">Рассчитать</button>
+    </form>
+    <div>
+        <div class="results">
+            <h2>Предложения</h2>
+            <div class="offers">Аэрофлот</div>
+            <div *ngIf='aeroflotTrips$'>
+                <div *ngFor="let trip of aeroflotTrips$">
+                    <div class="row">
+                        <p>{{trip.type}} : {{trip.cost | currency: 'RUB':'symbol-narrow':'1.1-1'}}</p>
+                    </div>                    
+                </div>
+            </div>
+
+            <div class="offers">РЖД</div>
+            <div *ngIf='rzdTrips$'>
+                <div *ngFor="let trip of rzdTrips$">
+                    <p>{{trip.type}} : {{trip.cost | currency: 'RUB':'symbol-narrow':'1.1-1'}} </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
